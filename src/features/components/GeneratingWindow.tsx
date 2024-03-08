@@ -6,8 +6,8 @@ interface GeneratingWindowProps {
   userInput: string;
   aiResponse: string;
   handleInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleRegenerate:()=> void;
   handleInsert: () => void;
-  messageInputRef: React.RefObject<HTMLInputElement>;
 }
 
 const GeneratingWindow: React.FC<GeneratingWindowProps> = ({
@@ -15,7 +15,7 @@ const GeneratingWindow: React.FC<GeneratingWindowProps> = ({
   aiResponse,
   handleInputChange,
   handleInsert,
-  messageInputRef,
+  handleRegenerate,
 }) => {
   return (
     <div className=" flex flex-col items-end p-8 bg-gray-50 shadow-lg rounded-2xl">
@@ -33,7 +33,6 @@ const GeneratingWindow: React.FC<GeneratingWindowProps> = ({
           value={userInput}
           onChange={handleInputChange}
           placeholder="Your prompt"
-          ref={messageInputRef}
         />
       </div>
       <div className="flex flex-row justify-end items-start gap-6">
@@ -53,7 +52,7 @@ const GeneratingWindow: React.FC<GeneratingWindowProps> = ({
           <div className="w-6 h-6 bg-blue-500">
             <img src={RegenerateIcon} alt="Regenerate" />
           </div>
-          <button className="text-2xl font-semibold text-white" disabled={true}>
+          <button className="text-2xl font-semibold text-white" onClick={handleRegenerate}>
             Regenerate
           </button>
         </div>
