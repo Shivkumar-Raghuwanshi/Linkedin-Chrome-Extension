@@ -1,4 +1,4 @@
-# Your Chrome Extension Project
+# AI-powered Linkedin Chrome Extension
 
 ## Description
 
